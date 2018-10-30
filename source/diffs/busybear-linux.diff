@@ -1,0 +1,91 @@
+diff --git a/conf/busybear.config b/conf/busybear.config
+index 55fe304..76ef0d5 100644
+--- a/conf/busybear.config
++++ b/conf/busybear.config
+@@ -1,6 +1,6 @@
+ BUSYBOX_VERSION=1.27.2
+ DROPBEAR_VERSION=2017.75
+-COMPILER_PREFIX=riscv64-unknown-linux-gnu
++COMPILER_PREFIX=riscv32-unknown-linux-gnu
+ IMAGE_FILE=busybear.bin
+ IMAGE_SIZE=256
+ ROOT_PASSWORD=busybear
+diff --git a/conf/busybox.config b/conf/busybox.config
+index 0961638..5bf5261 100644
+--- a/conf/busybox.config
++++ b/conf/busybox.config
+@@ -226,7 +226,7 @@ CONFIG_FEATURE_EXPAND_LONG_OPTIONS=y
+ CONFIG_UNEXPAND=y
+ CONFIG_FEATURE_UNEXPAND_LONG_OPTIONS=y
+ CONFIG_EXPR=y
+-CONFIG_EXPR_MATH_SUPPORT_64=y
++#CONFIG_EXPR_MATH_SUPPORT_64=y
+ CONFIG_FACTOR=y
+ CONFIG_FALSE=y
+ CONFIG_FOLD=y
+@@ -308,7 +308,7 @@ CONFIG_FEATURE_TEE_USE_BLOCK_IO=y
+ CONFIG_TEST=y
+ CONFIG_TEST1=y
+ CONFIG_TEST2=y
+-CONFIG_FEATURE_TEST_64=y
++#CONFIG_FEATURE_TEST_64=y
+ CONFIG_TIMEOUT=y
+ CONFIG_TOUCH=y
+ CONFIG_FEATURE_TOUCH_NODEREF=y
+@@ -325,7 +325,7 @@ CONFIG_UNIQ=y
+ CONFIG_UNLINK=y
+ CONFIG_USLEEP=y
+ CONFIG_UUDECODE=y
+-CONFIG_BASE64=y
++#CONFIG_BASE64=y
+ CONFIG_UUENCODE=y
+ CONFIG_WC=y
+ CONFIG_FEATURE_WC_LARGE=y
+@@ -661,7 +661,7 @@ CONFIG_SCRIPT=y
+ CONFIG_SCRIPTREPLAY=y
+ CONFIG_SETARCH=y
+ CONFIG_LINUX32=y
+-CONFIG_LINUX64=y
++#CONFIG_LINUX64=y
+ CONFIG_SETPRIV=y
+ CONFIG_SETSID=y
+ CONFIG_SWAPON=y
+@@ -1110,7 +1110,7 @@ CONFIG_HUSH_UMASK=y
+ # Options common to all shells
+ #
+ CONFIG_FEATURE_SH_MATH=y
+-CONFIG_FEATURE_SH_MATH_64=y
++#CONFIG_FEATURE_SH_MATH_64=y
+ CONFIG_FEATURE_SH_EXTRA_QUIET=y
+ # CONFIG_FEATURE_SH_STANDALONE is not set
+ # CONFIG_FEATURE_SH_NOFORK is not set
+diff --git a/conf/linux.config b/conf/linux.config
+index 2edc6e7..d802744 100644
+--- a/conf/linux.config
++++ b/conf/linux.config
+@@ -1,6 +1,6 @@
+ CONFIG_HZ_100=y
+ CONFIG_PCI=y
+-CONFIG_CROSS_COMPILE="riscv64-unknown-linux-gnu-"
++CONFIG_CROSS_COMPILE="riscv32-unknown-linux-gnu-"
+ CONFIG_DEFAULT_HOSTNAME="ucbvax"
+ CONFIG_PARTITION_ADVANCED=y
+ CONFIG_NET=y
+diff --git a/scripts/image.sh b/scripts/image.sh
+index 2753a23..e08ee9a 100644
+--- a/scripts/image.sh
++++ b/scripts/image.sh
+@@ -12,11 +12,11 @@ dd if=/dev/zero of=${IMAGE_FILE} bs=1M count=${IMAGE_SIZE}
+ /sbin/mkfs.ext4 -j -F ${IMAGE_FILE}
+ test -d mnt || mkdir mnt
+ mount -o loop ${IMAGE_FILE} mnt
+-( cd mnt && mkdir -p root bin dev lib lib64 lib/modules proc sbin sys tmp usr usr/bin usr/sbin var/run var/log var/tmp etc/dropbear etc/network/if-pre-up.d etc/network/if-up.d etc/network/if-down.d etc/network/if-post-down.d )
++( cd mnt && mkdir -p root bin dev lib lib/modules proc sbin sys tmp usr usr/bin usr/sbin var/run var/log var/tmp etc/dropbear etc/network/if-pre-up.d etc/network/if-up.d etc/network/if-down.d etc/network/if-post-down.d )
+ cp build/busybox-${BUSYBOX_VERSION}/busybox mnt/bin/
+ cp build/dropbear-${DROPBEAR_VERSION}/dropbear mnt/sbin/
+ rsync -a --exclude ldscripts --exclude '*.la' --exclude '*.a' ${RISCV}/sysroot/lib/ mnt/lib/
+-rsync -a --exclude ldscripts --exclude '*.la' --exclude '*.a' ${RISCV}/sysroot/lib64/ mnt/lib64/
++#rsync -a --exclude ldscripts --exclude '*.la' --exclude '*.a' ${RISCV}/sysroot/lib64/ mnt/lib64/
+ rsync -a etc/ mnt/etc/
+ hash=$(openssl passwd -1 -salt xyzzy ${ROOT_PASSWORD})
+ sed -i'' "s:\*:${hash}:" mnt/etc/shadow

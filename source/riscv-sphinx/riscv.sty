@@ -1,0 +1,25 @@
+\usepackage{xcolor}
+
+\definecolor{AMorange}{rgb}{0.84,0.32,0.28}
+
+% Redefine these colors to your liking in the preamble.
+\definecolor{TitleColor}{named}{AMorange}
+\definecolor{InnerLinkColor}{named}{AMorange}
+\definecolor{OuterLinkColor}{named}{AMorange}
+
+\makeatletter
+  \fancypagestyle{normal}{
+    \fancyhf{}
+    \headheight 40pt
+    \setlength{\topmargin}{-20mm}
+    \fancyfoot[R]{{\py@HeaderFamily\thepage}}
+    \fancyfoot[L]{{\py@HeaderFamily \@title}}
+    \fancyhead[R]{{\includegraphics[height=25pt]{logo-400.png}}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+  }
+\makeatother
+
+\PassOptionsToClass{openany}{\sphinxdocclass}
+
+\renewcommand{\releasename}{}
