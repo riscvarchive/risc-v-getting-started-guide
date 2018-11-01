@@ -3,7 +3,7 @@ RISC-V Getting Started Guide
 
 This is the repository for the `RISC-V Getting Started Guide <http://risc-v-getting-started-guide.readthedocs.io/>`_, an introductory material prepared by the RISC-V Foundation and hoste at Read The Docs to show you where to start if you're interested in developing for the free and open source ISA.
 
-For details about RISC-V itself, see the `RISC-V Website <riscv.org>`_
+For details about RISC-V itself, see the `RISC-V Website <riscv.org>`_.
 
 You can contribute to the Getting Started Guide too!
 We are always happy to add more platforms and examples, and make the Guide more attractive to readers.
