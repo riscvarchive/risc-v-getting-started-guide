@@ -24,4 +24,4 @@ For details about the ISA and the Foundation, see the `RISC-V website <https://r
 Contributing
 ------------
 
-You can contribute to this Guide - see the `project's README <https://github.com/antmicro/risc-v-getting-started-guide/README.rst>`_ for details.
+You can contribute to this Guide - see the `project's README <https://github.com/antmicro/risc-v-getting-started-guide/>`_ for details.
