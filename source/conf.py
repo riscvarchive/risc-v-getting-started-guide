@@ -23,13 +23,8 @@ needs_sphinx = '1.6'
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 # other recommended: sphinx.ext.graphviz
-extensions = ['sphinx.ext.todo', 'sphinx_tabs.tabs', 'sphinx.ext.extlinks']
+extensions = ['sphinx_tabs.tabs', 'sphinx.ext.extlinks']
 numfig = True
-todo_include_todos=False
-#graphviz_output_format = 'svg' # uncomment for graphviz
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -130,7 +125,12 @@ html_logo = theme_dir+'/logo-400-html.png'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ['_static']
+html_static_path = [theme_dir+'/static']
+
+# Add any paths that contain templates here, relative to this directory.
+templates_path = [theme_dir]
+
+html_style = 'theme.css'
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
