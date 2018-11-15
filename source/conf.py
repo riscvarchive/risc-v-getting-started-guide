@@ -18,12 +18,11 @@ import sys, os
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.6'
+needs_sphinx = '1.5'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-# other recommended: sphinx.ext.graphviz
-extensions = ['sphinx_tabs.tabs', 'sphinx.ext.extlinks']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.ifconfig', 'sphinx_tabs.tabs']
 numfig = True
 
 # The suffix of source filenames.
@@ -101,10 +100,7 @@ theme_dir = html_theme
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {
-    "navigation_depth": 5,
-    "collapse_navigation": False
-}
+#html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = ['.']
