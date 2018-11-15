@@ -39,7 +39,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
-	$(SPHINXBUILD) -b html -t internal -A basic_filename=$(FILENAME) -A targets="$(TARGETS)" -A conf_py_path="$(CONF_PY_PATH)" -A commit="$(COMMIT)" $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	$(SPHINXBUILD) -b html -A basic_filename="$(FILENAME)" -A conf_py_path="$(CONF_PY_PATH)" -A commit="$(COMMIT)" $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
