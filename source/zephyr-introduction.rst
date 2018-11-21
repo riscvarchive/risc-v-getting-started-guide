@@ -6,11 +6,11 @@ The Zephyr OS is based on a small-footprint kernel designed for use on resource-
 
 Currently supported RISC-V boards include:
 
-* `SiFive HiFive1 <zephyr-hifive1>`_
+* :doc:`SiFive HiFive1 <zephyr-hifive1>`
 * Microsemi's Mi-V soft CPU running on the M2GL025 development board
 * soft Pulpino CPU running on a Zedboard
 
-There is also a generic `QEMU 32-bit RISC-V target <zephyr-qemu>`_.
+There is also a generic :doc:`QEMU 32-bit RISC-V target <zephyr-qemu>`.
 
 For a full list and details, see `the Zephyr documentation <https://docs.zephyrproject.org/latest/boards/riscv32/index.html>`_.
 
