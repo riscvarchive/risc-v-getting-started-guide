@@ -22,7 +22,7 @@ needs_sphinx = '1.5'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.ifconfig', 'sphinx_tabs.tabs']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.ifconfig', 'sphinx_tabs.tabs', 'sphinxcontrib.jinja']
 numfig = True
 
 # The suffix of source filenames.
@@ -260,18 +260,3 @@ rst_epilog = """
 .. |project| replace:: %s
 """ % project
 
-def rstjinja(app, docname, source):
-    """
-    Render our pages as a jinja template for fancy templating goodness.
-    """
-    # Make sure we're outputting HTML
-    if app.builder.format != 'html':
-        return
-    src = source[0]
-    rendered = app.builder.templates.render_string(
-        src, app.config.html_context
-    )
-    source[0] = rendered
-
-def setup(app):
-    app.connect("source-read", rstjinja)

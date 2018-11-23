@@ -35,18 +35,20 @@ Getting the sources
 
 First, create a working directory, where we'll download and build all the sources.
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        .. code-block:: bash
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             mkdir riscv{{bits}}-linux
             cd riscv{{bits}}-linux
 
-{% endfor %}
+   {% endfor %}
 
 Then download all the required sources, which are:
 
@@ -84,13 +86,16 @@ Building
 
 If you're using a prebuilt toolchain, skip this step. If not, build the toolchain:
 
-.. tabs::
 
-{% for bits in [64,32] %}
+.. jinja::
 
-    .. group-tab:: {{bits}}-bit
+   .. tabs::
 
-        .. code-block:: bash
+   {% for bits in [64,32] %}
+
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             cd riscv-gnu-toolchain
 
@@ -103,19 +108,21 @@ If you're using a prebuilt toolchain, skip this step. If not, build the toolchai
             export PATH="$PATH:/opt/riscv{{bits}}/bin"
             export RISCV="/opt/riscv{{bits}}"
 
-{% endfor %}
+   {% endfor %}
 
 ----------
 
 Build QEMU with the RISC-V target:
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        .. code-block:: bash
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             cd qemu
             git checkout v3.0.0
@@ -123,87 +130,97 @@ Build QEMU with the RISC-V target:
             make -j $(nproc)
             sudo make install
 
-{% endfor %}
+   {% endfor %}
 
 ----------
 
 Build Linux for the RISC-V target.
 First, checkout to a desired version and copy the default configuration from Busybear:
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        .. code-block:: bash
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             cd linux
             git checkout v4.19-rc3
             cp ../busybear-linux/conf/linux.config .config
             make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- olddefconfig
 
-{% endfor %}
+   {% endfor %}
 
 Next, enter the kernel configuration, and make sure that the following options are checked:
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        - ``ARCH_RV{{bits}}I``
-        - ``CMODEL_MED{% if bits == 64 %}ANY{% else %}LOW{% endif %}``
-        - ``CONFIG_SIFIVE_PLIC``
+      .. group-tab:: {{bits}}-bit
 
-{% endfor %}
+         - ``ARCH_RV{{bits}}I``
+         - ``CMODEL_MED{% if bits == 64 %}ANY{% else %}LOW{% endif %}``
+         - ``CONFIG_SIFIVE_PLIC``
 
-.. tabs::
+   {% endfor %}
 
-{% for bits in [64,32] %}
+.. jinja::
 
-    .. group-tab:: {{bits}}-bit
+   .. tabs::
 
-        .. code-block:: bash
+   {% for bits in [64,32] %}
+
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             # enter kernel configuration
             make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- nconfig
 
-{% endfor %}
+   {% endfor %}
 
 After accepting changes in the configuration, compile the kernel:
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        .. code-block:: bash
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- vmlinux -j $(nproc)
 
-{% endfor %}
+   {% endfor %}
 
 ----------
 
 Build BBL:
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        .. code-block:: bash
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             cd riscv-pk
             mkdir build && cd build
             ../configure --enable-logo --host=riscv{{bits}}-unknown-elf --with-payload=../../linux/vmlinux
             make -j $(nproc)
 
-{% endfor %}
+   {% endfor %}
 
 ----------
 
@@ -219,20 +236,22 @@ Running
 
 Go back to your main working directory and run:
 
-.. tabs::
+.. jinja::
 
-{% for bits in [64,32] %}
+   .. tabs::
 
-    .. group-tab:: {{bits}}-bit
+   {% for bits in [64,32] %}
 
-        .. code-block:: bash
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
 
             sudo qemu-system-riscv{{bits}} -nographic -machine virt \
                  -kernel riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" \
                  -drive file=busybear-linux/busybear.bin,format=raw,id=hd0 \
                  -device virtio-blk-device,drive=hd0
 
-{% endfor %}
+   {% endfor %}
 
 The default credentials are:
 
