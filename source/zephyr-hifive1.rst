@@ -68,7 +68,7 @@ Move to your Freedom E SDK directory and connect to the board with OpenOCD:
 
 Leave OpenOCD running and connect to the board with GDB, disable flash protection and load the binary:
 
-.. prompt:: bash (gdb)
+.. prompt:: bash (gdb) auto
 
     riscv-gnu-toolchain/bin/riscv64-unknown-elf-gdb
     (gdb) set remotetimeout 240
