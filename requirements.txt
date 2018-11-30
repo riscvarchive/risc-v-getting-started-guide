@@ -1,2 +1,3 @@
 sphinx_tabs
 sphinx-jinja
+sphinx-prompt
