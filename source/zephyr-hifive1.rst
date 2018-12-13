@@ -78,7 +78,7 @@ Leave OpenOCD running and connect to the board with GDB, disable flash protectio
     (gdb) load <path_to_your_zephyr_build>/zephyr/zephyr.elf
     (gdb) monitor resume
 
-Finally, you can connect wtih picocom to the serial console:
+Finally, you can connect with picocom to the serial console:
 
 .. code-block:: bash
 
