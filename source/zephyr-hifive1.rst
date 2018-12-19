@@ -46,7 +46,7 @@ Download Freedom E SDK and move previously downloaded prebuilt tools to their re
 Compiling an example
 --------------------
 
-Create a build directory and run the following commands:
+Create a build directory (we will use ``build-example`` here) and compile an example binary inside it with the following commands:
 
 .. code-block:: bash
 
@@ -66,7 +66,7 @@ Move to your Freedom E SDK directory and connect to the board with OpenOCD:
     cd freedom-e-sdk
     sudo openocd/bin/openocd -f bsp/env/freedom-e300-hifive1/openocd.cfg
 
-Leave OpenOCD running and connect to the board with GDB, disable flash protection and load the binary:
+Leave OpenOCD running and connect to the board with GDB, disable flash protection and load the binary (assuming it's in the ``build-example`` directory you've created earlier):
 
 .. prompt:: bash (gdb) auto
 
@@ -75,7 +75,7 @@ Leave OpenOCD running and connect to the board with GDB, disable flash protectio
     (gdb) target extended-remote localhost:3333
     (gdb) monitor reset halt
     (gdb) monitor flash protect 0 64 last off
-    (gdb) load <path_to_your_zephyr_build>/zephyr/zephyr.elf
+    (gdb) load build-example/zephyr/zephyr.elf
     (gdb) monitor resume
 
 Finally, you can connect with picocom to the serial console:
