@@ -15,12 +15,12 @@ Then, download the Zephyr source code, install additional dependencies and expor
 .. code-block:: bash
 
     git clone https://github.com/zephyrproject-rtos/zephyr
-    cd <path_where_zephyr_is_cloned>
+    cd zephyr
     pip3 install --user -r scripts/requirements.txt
     export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
     . ./zephyr-env.sh
 
-Download and install Zephyr SDK:
+Download and install Zephyr SDK (note that in the last line you need to insert the value of <zephyr_sdk_install_dir> that you selected during installation):
 
 .. code-block:: bash
 
@@ -28,5 +28,5 @@ Download and install Zephyr SDK:
     sh zephyr-sdk-0.9.3-setup.run
     export ZEPHYR_SDK_INSTALL_DIR=<zephyr_sdk_install_dir>
 
-.. note:: You can find more detailed information related to the RTOS in `Zephyr's documentation <https://docs.zephyrproject.org/latest/index.html>`_.
+.. note:: You can find more detailed information related to the how to use Zephyr in the `Zephyr Project's documentation <https://docs.zephyrproject.org/latest/index.html>`_.
 
