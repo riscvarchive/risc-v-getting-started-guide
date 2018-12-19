@@ -20,7 +20,7 @@ Then, download the Zephyr source code, install additional dependencies and expor
     export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
     . ./zephyr-env.sh
 
-Download and install Zephyr SDK (note that in the last line you need to insert the value of <zephyr_sdk_install_dir> that you selected during installation):
+Download and install Zephyr SDK (note that in the last line you need to insert the value of ``<zephyr_sdk_install_dir>`` that you selected during installation):
 
 .. code-block:: bash
 
@@ -28,5 +28,5 @@ Download and install Zephyr SDK (note that in the last line you need to insert t
     sh zephyr-sdk-0.9.3-setup.run
     export ZEPHYR_SDK_INSTALL_DIR=<zephyr_sdk_install_dir>
 
-.. note:: You can find more detailed information related to the how to use Zephyr in the `Zephyr Project's documentation <https://docs.zephyrproject.org/latest/index.html>`_.
+.. note:: You can find more detailed information related to the how to use Zephyr in the `Zephyr Project documentation <https://docs.zephyrproject.org/latest/index.html>`_.
 
