@@ -2,7 +2,7 @@ RISC-V Linux port
 =================
 
 Linux and related tools are - for the most part - already in the upstream repositories of the respective projects.
-As noted on the `Debian wiki`_:
+As noted on the `Debian RISC-V wiki`_:
 
 * binutils: upstreamed (2.28 is the first release with RISC-V support)
 * gcc: upstreamed (7.1 is the first release with RISC-V support)
@@ -15,8 +15,8 @@ This guide targets BusyBear Linux for QEMU and Buildroot for HiFive Unleashed.
 
 Debian and Fedora ports are also available, for more information see:
 
-* `Debian wiki`_
-* `Fedora wiki`_
+* `Debian RISC-V wiki`_
+* `Fedora RISC-V wiki`_
 
-.. _Debian wiki: https://wiki.debian.org/RISC-V
-.. _Fedora wiki: https://fedoraproject.org/wiki/Architectures/RISC-V
+.. _Debian RISC-V wiki: https://wiki.debian.org/RISC-V
+.. _Fedora RISC-V wiki: https://fedoraproject.org/wiki/Architectures/RISC-V
