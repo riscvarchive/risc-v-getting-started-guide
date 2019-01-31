@@ -12,21 +12,18 @@ Just like with the HiFive1, SiFive provides open source schematics, an Altium De
 
    The HiFive Unleashed board - top.
 
+.. note:: This chapter targets Debian-based Linux flavors, and has been tested on Ubuntu 18.04.
+
 Prerequisites
 -------------
 
-Running Linux on the HiFive Unleashed RISC-V board requires you to install some prerequisites.
-Find instructions for Linux below:
+Running Linux on the HiFive Unleashed board requires you to install some prerequisites.
 
-.. tabs::
+.. code-block:: bash
 
-   .. tab:: Ubuntu/Debian
-
-      .. code-block:: bash
-
-         sudo apt install autoconf automake autotools-dev bc bison build-essential curl flex \
-                          gawk gdisk git gperf libgmp-dev libmpc-dev libmpfr-dev libncurses-dev \
-                          libssl-dev libtool patchutils python screen texinfo unzip zlib1g-dev
+    sudo apt install autoconf automake autotools-dev bc bison build-essential curl flex \
+                     gawk gdisk git gperf libgmp-dev libmpc-dev libmpfr-dev libncurses-dev \
+                     libssl-dev libtool patchutils python screen texinfo unzip zlib1g-dev
 
 Getting the sources
 -------------------
