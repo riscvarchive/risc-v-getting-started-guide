@@ -15,14 +15,14 @@ Find instructions for various Linux distributions as well as macOS below:
 
          sudo apt install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
                           gawk build-essential bison flex texinfo gperf libtool patchutils bc \
-                          zlib1g-dev libexpat-dev
+                          zlib1g-dev libexpat-dev git
 
    .. tab:: Fedora/CentOS/RHEL OS
 
       .. code-block:: bash
 
          sudo yum install autoconf automake libmpc-devel mpfr-devel gmp-devel gawk bison flex \
-                          texinfo patchutils gcc gcc-c++ zlib-devel expat-devel
+                          texinfo patchutils gcc gcc-c++ zlib-devel expat-devel git
 
    .. tab:: macOS
 
