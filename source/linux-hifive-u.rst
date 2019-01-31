@@ -35,7 +35,7 @@ Clone the official Freedom Unleashed SDK repository and checkout to appropriate 
 
 .. code-block:: bash
 
-    git clone --recursive clone https://github.com/sifive/freedom-u-sdk.git
+    git clone --recursive https://github.com/sifive/freedom-u-sdk.git
     cd freedom-u-sdk
     git checkout hifive-unleashed
     cd buildroot
