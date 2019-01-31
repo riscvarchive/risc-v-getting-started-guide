@@ -11,6 +11,8 @@ Find instructions for various Linux distributions as well as macOS below:
 
    .. tab:: Ubuntu/Debian
 
+      .. note:: This has been tested on Ubuntu 18.04.
+
       .. code-block:: bash
 
          sudo apt install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
