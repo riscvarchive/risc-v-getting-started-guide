@@ -39,7 +39,7 @@ Clone the official Freedom Unleashed SDK repository and checkout to appropriate 
     git checkout sifive
     cd ..
 
-.. note:: Recursively cloning the Freedom Unleashed SDK repository may take a while.
+.. note:: Recursively cloning the Freedom Unleashed SDK repository may take a while. Should it fail, use ``git submodule update --init --recursive`` inside the ``freedom-u-sdk`` folder to make sure you have all the relevant files.
 
 Building
 --------
