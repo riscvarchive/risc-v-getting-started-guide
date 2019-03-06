@@ -37,8 +37,8 @@ master_doc = 'index'
 # General information about the project.
 project = u'RISC-V - Getting Started Guide'
 basic_filename = u'risc-v--getting-started-guide'
-authors = u'Antmicro Ltd'
-copyright = authors + u', 2018'
+authors = u'RISC-V Foundation'
+copyright = u'Antmicro, 2018; RISC-V Foundation, 2018-2019'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
