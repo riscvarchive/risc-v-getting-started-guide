@@ -22,5 +22,6 @@
 
    zephyr-introduction
    getting-zephyr
+   zephyr-litex
    zephyr-qemu
    zephyr-hifive1
