@@ -92,7 +92,7 @@ Loading Zephyr
 
       .. code-block:: text
 
-         wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex/utils/litex_term.py
+         wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex/tools/litex_term.py
          chmod u+x litex_term.py
 
          ./litex_term.py --serial-boot --kernel zephyr.bin /dev/ttyUSB1
