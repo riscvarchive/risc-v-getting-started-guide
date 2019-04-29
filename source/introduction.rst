@@ -17,7 +17,7 @@ About RISC-V
 
 RISC-V (pronounced "risk-five") is an open, free ISA enabling a new era of processor innovation through open standard collaboration.
 It's both academia- and industry friendly, open to scrutiny, built from scratch with security and modern use cases in mind.
-The standard is driven by a Foundation with more than 100 members, including Google, Western Digital, NVIDIA, NXP and many other industry leaders.
+The standard is driven by a Foundation with more than 130 members, including Google, Western Digital, NVIDIA, NXP and many other industry leaders.
 
 For details about the ISA and the Foundation, see the `RISC-V website <https://riscv.org/>`_.
 
