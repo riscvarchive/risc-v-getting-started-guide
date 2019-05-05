@@ -9,6 +9,16 @@
    introduction
 
 .. toctree::
+   :caption: Zephyr
+   :maxdepth: 2
+
+   zephyr-introduction
+   getting-zephyr
+   zephyr-qemu
+   zephyr-hifive1
+   zephyr-litex
+
+.. toctree::
    :caption: Linux
    :maxdepth: 2
 
@@ -16,12 +26,3 @@
    linux-qemu
    linux-hifive-u
 
-.. toctree::
-   :caption: Zephyr
-   :maxdepth: 2
-
-   zephyr-introduction
-   getting-zephyr
-   zephyr-litex
-   zephyr-qemu
-   zephyr-hifive1

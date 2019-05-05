@@ -8,7 +8,7 @@ Introduction
 
 This Getting Started Guide will explain how to get started with developing for the free and open RISC-V :abbr:`ISA (Instruction Set Architecture)`, both in simulation and on physical implementations.
 
-The Guide focuses on running standard operating systems - :doc:`Linux <linux-introduction>` and :doc:`Zephyr <zephyr-introduction>` - on popular RISC-V platforms with minimum effort.
+The Guide focuses on running standard operating systems - :doc:`Zephyr <zephyr-introduction>` and :doc:`Linux <linux-introduction>` - on popular RISC-V platforms with minimum effort.
 
 It will be expanded with time to cover more platforms and scenarios.
 
@@ -24,4 +24,6 @@ For details about the ISA and the Foundation, see the `RISC-V website <https://r
 Contributing
 ------------
 
-You can contribute to this Guide - see the `project's README <https://github.com/antmicro/risc-v-getting-started-guide/>`_ for details.
+The source code for this Guide can be found on the `RISC-V Foundation's GitHub <https://github.com/riscv/risc-v-getting-started-guide>`_ - while its compiled version is automatically generated using `Read the Docs <https://readthedocs.org>`_.
+
+We encourage you to contribute - see the `project's README <https://github.com/riscv/risc-v-getting-started-guide/#contributing>`_ for details.

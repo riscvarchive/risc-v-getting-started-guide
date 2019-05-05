@@ -31,7 +31,7 @@ You can also generate a PDF, which requires TeX and a few other tools.
 Contributing
 ------------
 
-The RISC-V ecosystem is largely based around a diversified pool of corporate and personal contributions coming from over 100 members and thousands of developers around the world.
+The RISC-V ecosystem is largely based around a diversified pool of corporate and personal contributions coming from over 130 corporate members and thousands of developers around the world.
 We especially welcome contributions that make RISC-V more accessible to the broader public (such as improving this Guide) - and we are happy you are reading this!
 
 Please use the GitHub issues and pull requests mechanisms to contribute to the Guide.
