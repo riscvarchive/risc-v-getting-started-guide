@@ -19,7 +19,7 @@ Then, download the Zephyr source code, install additional dependencies and expor
    :start-after: # download Zephyr
    :end-before: # /download Zephyr
 
-Download and install Zephyr SDK (note that in the last line you need to insert the value of ``<zephyr_sdk_install_dir>`` that you selected during installation):
+Download and install Zephyr SDK (note that you can use a different directory for the SDK installation by changing the shell variable used in this snippet; the value used here is just a sane default):
 
 .. literalinclude:: scripts/getting-zephyr.sh
    :start-after: # install Zephyr SDK
