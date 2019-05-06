@@ -1,6 +1,8 @@
 Running Zephyr on QEMU
 ======================
 
+.. highlight:: bash
+
 Setting up the environment
 --------------------------
 
@@ -11,19 +13,17 @@ Compiling an example
 
 Create a build directory and run following commands:
 
-.. code-block:: bash
-
-    mkdir build-example
-    cmake -DBOARD=qemu_riscv32 $ZEPHYR_BASE/samples/hello_world
-    make -j $(nproc)
+.. literalinclude:: scripts/zephyr-qemu.sh
+   :start-after: # build example
+   :end-before: # /build example
 
 Running an example
 ------------------
 
 To run an example, simply run:
 
-.. code-block:: bash
-
-    make run
+.. literalinclude:: scripts/zephyr-qemu.sh
+   :start-after: # run example
+   :end-before: # /run example
 
 You can exit QEMU with ``C-a x`` key strokes.
