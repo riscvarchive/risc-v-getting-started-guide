@@ -13,13 +13,19 @@ First, you will need to install the following prerequisities:
    :start-after: # install prerequisites
    :end-before: # /install prerequisites
 
-Then, download the Zephyr source code, install additional dependencies and export variables:
+Then, download the Zephyr source code and install additional dependencies:
 
 .. literalinclude:: scripts/getting-zephyr.sh
    :start-after: # download Zephyr
    :end-before: # /download Zephyr
 
-Download and install Zephyr SDK (note that you can use a different directory for the SDK installation by changing the shell variable used in this snippet; the value used here is just a sane default):
+Set up the environment (do this always for a shell where you will be compiling/running Zephyr):
+
+.. literalinclude:: scripts/getting-zephyr.sh
+   :start-after: # set up env
+   :end-before: # /set up env
+
+Download and install Zephyr SDK (note that you can use a different directory for the SDK installation by changing the shell variable set in the snippet above; the value used here is just a sane default):
 
 .. literalinclude:: scripts/getting-zephyr.sh
    :start-after: # install Zephyr SDK
