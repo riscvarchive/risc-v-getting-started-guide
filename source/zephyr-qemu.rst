@@ -26,4 +26,4 @@ To run an example, simply run:
    :start-after: # run example
    :end-before: # /run example
 
-You can exit QEMU with ``C-a x`` key strokes.
+You can exit QEMU with :kbd:`C-a` :kbd:`x` key strokes.
