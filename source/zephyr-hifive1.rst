@@ -85,4 +85,4 @@ Finally, you can connect with picocom to the serial console:
     sudo picocom -b 115200 /dev/ttyUSBx  # substitute "x" with appropriate port number
 
 After resetting the board, a hello world message should appear.
-You can quit picocom using the ``C-a C-q`` key strokes.
+You can quit picocom using the :kbd:`C-a` :kbd:`C-q` key strokes.
