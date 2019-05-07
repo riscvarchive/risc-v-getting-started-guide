@@ -69,8 +69,7 @@ Preparing the platform
 
       .. note::
 
-         Support for LiteX in Renode is available in pre-built packages available `here <https://github.com/renode/renode/releases/tag/v1.7>`_.
-         If you want to build your own copy, refer to `the documentation <https://renode.readthedocs.io/en/latest/advanced/building_from_sources.html>`_.
+         Support for LiteX in Renode since version 1.7 - download pre-built packages `from GitHub <https://github.com/renode/renode/releases/tag/v1.7>`_. Refer to the `Renode README <https://github.com/renode/renode#installation>` for more detailed installation instructions.
 
       Start Renode and create an instance of emulated LiteX+VexRiscv board:
 
