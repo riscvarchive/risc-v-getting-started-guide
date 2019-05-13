@@ -10,7 +10,7 @@ The Zephyr OS is managed by the vendor neutral Zephyr Project which is part of t
 Zephyr-enabled platforms currently described in the Getting Started Guide include:
 
 * :doc:`SiFive HiFive1 <zephyr-hifive1>`
-* :doc:`LiteX SoC with VexRiscv CPU <zephyr-litex>` running on the Future Electronics Avalanche board or in the `Renode <https://renode.io>`_ simulation framework
+* :doc:`LiteX SoC with VexRiscv CPU <zephyr-litex>` running on the Future Electronics Avalanche board with a Microsemi PolarFire FPGA or in the `Renode <https://renode.io>`_ simulation framework
 
 .. sidebar:: And the winner is...
 
