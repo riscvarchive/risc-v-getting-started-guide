@@ -1,7 +1,12 @@
-Running Zephyr on LiteX with VexRiscv
-=====================================
+Running Zephyr on LiteX/VexRiscv on Avalanche board with Microsemi PolarFire FPGA
+=================================================================================
 
-This section contains tutorial on how to build and run a shell sample for the Zephyr RTOS running on the LiteX soft SoC with an RV32 VexRiscv CPU on `Future Electronics Avalanche Board <https://www.microsemi.com/existing-parts/parts/139680>`_ with a Microsemi PolarFire FPGA as well as in the `Renode open source simulation framework <https://renode.io>`_.
+This section contains tutorial on how to build and run a shell sample for the Zephyr RTOS running on the LiteX soft SoC with an RV32 VexRiscv CPU on `Future Electronics Avalanche Board <https://www.microsemi.com/existing-parts/parts/139680>`_ with a `PolarFire FPGA <https://www.microsemi.com/product-directory/fpgas/3854-polarfire-fpgas>`_ from Microsemi (a Microchip company) as well as in the `Renode open source simulation framework <https://renode.io>`_.
+
+.. figure:: images/avalanche.jpg
+   :align: center
+
+   The Future Electronics Avalanche board - top.
 
 Building your system
 --------------------
@@ -69,7 +74,7 @@ Preparing the platform
 
       .. note::
 
-         Support for LiteX is available in Renode since version 1.7 - download pre-built packages `from GitHub <https://github.com/renode/renode/releases/tag/v1.7>`_. Refer to the `Renode README <https://github.com/renode/renode#installation>` for more detailed installation instructions.
+         Support for LiteX is available in Renode since version 1.7 - download pre-built packages `from GitHub <https://github.com/renode/renode/releases/tag/v1.7>`_. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for more detailed installation instructions.
 
       Start Renode and create an instance of emulated LiteX+VexRiscv board:
 
