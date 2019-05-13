@@ -7,7 +7,7 @@ set -e
 git clone https://github.com/buildroot/buildroot
 cd buildroot
 git checkout 653bf9383721a2e2d3313ae08a3019b864326
-git am 0001-Add-Litex-VexRiscV-support.patch
+git am 0001-Add-Litex-VexRiscv-support.patch
 
 # /clone
 
