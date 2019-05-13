@@ -75,8 +75,8 @@ Then download all the required sources, which are:
           the Linux cross-compiler yourself, as it isn't provided in the archive
           from SiFive's website.
 
-**For 32-bit**, apply the following patches to their respective repositories: :download:`linux.diff <diffs/linux.diff>`
-and :download:`busybear-linux.diff <diffs/busybear-linux.diff>`:
+**For 32-bit**, apply the following patches to their respective repositories: :download:`linux.diff <files/linux.diff>`
+and :download:`busybear-linux.diff <files/busybear-linux.diff>`:
 
 .. code-block:: bash
 
