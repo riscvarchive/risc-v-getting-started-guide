@@ -1,13 +1,12 @@
-Running 32-bit RISC-V Linux on Litex/VexRiscv SoC on Microsemi's Avalanche board
-================================================================================
+Running 32-bit Linux on Litex/VexRiscv on Avalanche with Microsemi PolarFire FPGA
+=================================================================================
 
-Microsemi's `Avalanche <https://www.microsemi.com/existing-parts/parts/139680>`_ is a low cost PolarFire FPGA development board.
-The FPGA chip can be programmed with a bitstream with Litex SoC powered with 32 bit Linux capable VexRiscv RISC-V CPU.
+This section contains tutorial on how to build and run 32-bit Linux on the LiteX soft SoC with an RV32 VexRiscv CPU on the `Future Electronics Avalanche Board <https://www.microsemi.com/existing-parts/parts/139680>`_ with a `PolarFire FPGA <https://www.microsemi.com/product-directory/fpgas/3854-polarfire-fpgas>`_ from Microsemi (a Microchip company) as well as in the `Renode open source simulation framework <https://renode.io>`_.
 
 .. figure:: images/avalanche.jpg
    :align: center
 
-   The Avalanche board - top.
+   The Future Electronics Avalanche board - top.
 
 .. note:: This chapter targets Debian-based Linux flavors, and has been tested on Ubuntu 18.04.
 
@@ -25,26 +24,22 @@ Running Linux on the Litex/VexRiscv platform requires you to install some prereq
 Getting the sources
 -------------------
 
-Clone the official Buildroot repository and apply :download:`patch adding VexRiscv support <files/0001-Add-Litex-VexRiscv-support.patch>`
-
+Clone the official Buildroot repository and apply a :download:`patch adding VexRiscv support <files/0001-Add-Litex-VexRiscv-support.patch>`
 
 .. literalinclude:: scripts/linux-avalanche.sh
    :start-after: # clone
    :end-before: # /clone
-
 
 Building
 --------
 
 Simply run:
 
-
 .. literalinclude:: scripts/linux-avalanche.sh
    :start-after: # build
    :end-before: # /build
 
-.. note:: The build process may take some time, do not be discouraged by the wait. The resulting binaries (rootfs.cpio and Image) will be written in the output/images folder.
-
+.. note:: The build process may take some time, do not be discouraged by the wait. The resulting binaries (``rootfs.cpio`` and ``Image``) will be written in the ``output/images`` folder.
 
 Running
 -------
@@ -62,27 +57,26 @@ Preparing the platform
 
           wget https://github.com/riscv/risc-v-getting-started-guide/releases/download/tip/bitstream-litex-vexriscv-avalanche-linux.job
 
-       Load it onto the Avalanche board usugn the `PolarFire FlashPro <https://www.microsemi.com/product-directory/programming/4977-flashpro#software>`_ tool.`
+       Load it onto the Avalanche board using the `PolarFire FlashPro <https://www.microsemi.com/product-directory/programming/4977-flashpro#software>`_ tool.`
        You can refer to the "Creating a Job Project from a FlashPro Express Job" section of the tool's official `User Guide <https://coredocs.s3.amazonaws.com/Libero/12_0_0/Tool/flashpro_express_ug.pdf>`_.
 
    .. group-tab:: Renode
    
       .. note::
 
-         Support for Linux-enabled LiteX with VexRiscv is available in not yet available in pre-built Renode packages. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for instruction on building from sources.
+         Support for Linux-enabled LiteX with VexRiscv is available in not yet available in pre-built Renode packages. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for instructions on building from sources.
 
-      Start Renode and create an instance of emulated Linux-enabled LiteX+VexRiscv board:
+      Start Renode and create an simulated instance of Linux-enabled LiteX+VexRiscv:
 
       .. code-block:: text
 
          mach create "litex-vexriscv-linux"
          machine LoadPlatformDescription @platforms/cpus/litex_vexriscv_linux.repl
 
-
 Loading Linux images
 ++++++++++++++++++++
 
-First, download pre-built binaries of emulator and the device tree:
+First, download pre-built binaries of two files needed for running Linux on the platform, the Machine Mode emulator and the device tree:
 
 .. literalinclude:: scripts/linux-avalanche.sh
    :start-after: # prebuilt_binaries
@@ -92,7 +86,7 @@ First, download pre-built binaries of emulator and the device tree:
 
    .. group-tab:: Hardware
 
-      The Board can be flashed using UART interface.
+      The Avalanche board can be flashed using the UART interface.
       Flashing can be done using the ``litex_term`` tool
       
       .. literalinclude:: scripts/linux-avalanche.sh
@@ -101,23 +95,18 @@ First, download pre-built binaries of emulator and the device tree:
 
    .. group-tab:: Renode
 
-      To load all the binaries onto the emulated platform, execute the following commands:
+      To load all the binaries onto the simulated platform, execute the following commands:
 
-      .. code-block:: text
-
-         sysbus LoadBinary @Image        0xc0000000
-         sysbus LoadBinary @rootfs.cpio  0xc0800000
-         sysbus LoadFdt    @devicetree-litex-vexriscv-avalanche-linux.dtb 0xc1000000
-         sysbus LoadBinary @emulator-litex-vexriscv-avalanche-linux.bin   0x20000000
-
-         # start executing directly from emulator
-         cpu PC 0x20000000
+      .. literalinclude:: scripts/linux-avalanche.resc
+      
+         :start-after: # set up platform
+         :end-before: # /set up platform
 
       .. note::
 
-         LiteX bios plays a role of a bootloader and is required on hardware to run Linux.
+         The LiteX bios plays a role of a bootloader and is required on hardware to run Linux.
 
-         In Renode, however, you can load binaries to RAM directly and set CPU PC to its entry point, so there is no need for a bootloader.
+         In Renode, however, you can load binaries to RAM directly and set the CPU PC to its entry point, so there is no need for a bootloader.
 
 
 Running Linux
@@ -174,19 +163,21 @@ Running Linux
 
    .. group-tab:: Renode
 
-      Open UART window and start the emulation::
+      Open a UART window and start the Renode simulation:
+      
+      .. literalinclude:: scripts/linux-avalanche.resc
 
-         showAnalyzer sysbus.uart
-         start
+         :start-after: # run
+         :end-before: # /run
 
-You should see the following log of booting Linux:
+Now you should see the following log of booting Linux:
 
 .. code-block:: text
 
    VexRiscv Machine Mode software built May 13 2019 14:14:12
    --========== Booting Linux =============--
    [    0.000000] No DTB passed to the kernel
-   [    0.000000] Linux version 5.0.14 (karol@karol-office) (gcc version 8.3.0 (Buildroot 2019.05-rc1-00022-g653bf93)) #1 Mon May 13 10:22:15 CEST 2019
+   [    0.000000] Linux version 5.0.14 (user@host) (gcc version 8.3.0 (Buildroot 2019.05-rc1-00022-g653bf93)) #1 Mon May 13 10:22:15 CEST 2019
    [    0.000000] Initial ramdisk at: 0x(ptrval) (8388608 bytes)
    [    0.000000] Zone ranges:
    [    0.000000]   Normal   [mem 0x00000000c0000000-0x00000000c7ffffff]
@@ -249,10 +240,10 @@ You should see the following log of booting Linux:
    login[48]: root login on 'hvc0'
    root@buildroot:~#
 
-
 The default Linux credentials are:
-
 
 username
     root
     
+password
+    (no pass)
