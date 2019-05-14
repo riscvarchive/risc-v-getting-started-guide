@@ -31,7 +31,7 @@ wget https://github.com/riscv/risc-v-getting-started-guide/releases/download/tip
 cd ~/vexriscv-bins
 wget https://github.com/riscv/risc-v-getting-started-guide/releases/download/tip/devicetree-litex-vexriscv-avalanche-linux.dtb
 wget https://github.com/riscv/risc-v-getting-started-guide/releases/download/tip/emulator-litex-vexriscv-avalanche-linux.bin
-# /get prebuiltbinaries
+# /get prebuilt binaries
 
 # flash
 # get the litex_term tool
