@@ -59,7 +59,7 @@ Preparing the platform
        You can refer to the "Creating a Job Project from a FlashPro Express Job" section of the tool's official `User Guide <https://coredocs.s3.amazonaws.com/Libero/12_0_0/Tool/flashpro_express_ug.pdf>`_.
 
    .. group-tab:: Renode
-   
+
       .. note::
 
          Support for Linux-enabled LiteX with VexRiscv is available in not yet available in pre-built Renode packages. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for instructions on building from sources.
@@ -67,7 +67,6 @@ Preparing the platform
       Start Renode and create an simulated instance of Linux-enabled LiteX+VexRiscv:
 
       .. literalinclude:: scripts/linux-avalanche.resc
-      
          :start-after: # create platform
          :end-before: # /create platform
 
@@ -86,7 +85,7 @@ First, download pre-built binaries of two files needed for running Linux on the 
 
       The Avalanche board can be flashed using the UART interface.
       Flashing can be done using the ``litex_term`` tool
-      
+
       .. literalinclude:: scripts/linux-avalanche.sh
          :start-after: # flash
          :end-before: # /flash
@@ -96,7 +95,6 @@ First, download pre-built binaries of two files needed for running Linux on the 
       To load all the binaries onto the simulated platform, execute the following commands:
 
       .. literalinclude:: scripts/linux-avalanche.resc
-      
          :start-after: # set up platform
          :end-before: # /set up platform
 
@@ -162,9 +160,8 @@ Running Linux
    .. group-tab:: Renode
 
       Open a UART window and start the Renode simulation:
-      
-      .. literalinclude:: scripts/linux-avalanche.resc
 
+      .. literalinclude:: scripts/linux-avalanche.resc
          :start-after: # run
          :end-before: # /run
 
@@ -242,6 +239,6 @@ The default Linux credentials are:
 
 username
     root
-    
+
 password
     (no pass)
