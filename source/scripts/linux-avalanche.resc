@@ -1,3 +1,8 @@
+# create platform
+mach create "litex-vexriscv-linux"
+machine LoadPlatformDescription @platforms/cpus/litex_vexriscv_linux.repl
+# /create platform
+
 # set up platform
 sysbus LoadBinary @Image        0xc0000000
 sysbus LoadBinary @rootfs.cpio  0xc0800000
