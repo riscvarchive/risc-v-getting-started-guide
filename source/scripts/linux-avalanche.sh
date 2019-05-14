@@ -12,12 +12,11 @@ sudo apt install autoconf automake autotools-dev bc bison build-essential curl f
 git clone https://github.com/buildroot/buildroot
 cd buildroot
 git checkout 653bf9383721a2e2d3313ae08a3019b864326
-git am 0001-Add-Litex-VexRiscv-support.patch
+git am ../../files/0001-Add-Litex-VexRiscv-support.patch
 # /clone
 
 # build
 mkdir ~/vexriscv-bins
-cd buildroot
 make litex_vexriscv_defconfig
 make -j`nproc`
 cp output/images/Image output/images/rootfs.cpio ~/vexriscv-bins
