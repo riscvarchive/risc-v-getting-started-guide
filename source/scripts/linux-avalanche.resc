@@ -1,0 +1,7 @@
+sysbus LoadBinary @Image        0xc0000000
+sysbus LoadBinary @rootfs.cpio  0xc0800000
+sysbus LoadFdt    @devicetree-litex-vexriscv-avalanche-linux.dtb 0xc1000000
+sysbus LoadBinary @emulator-litex-vexriscv-avalanche-linux.bin   0x20000000
+
+# start executing directly from the Machine Mode emulator
+cpu PC 0x20000000
