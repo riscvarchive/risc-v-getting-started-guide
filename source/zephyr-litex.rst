@@ -69,20 +69,18 @@ Preparing the platform
       Load it onto the Avalanche board using the `PolarFire FlashPro <https://www.microsemi.com/product-directory/programming/4977-flashpro#software>`_ tool.
       You can refer to the "Creating a Job Project from a FlashPro Express Job" section of the tool's official `User Guide <https://coredocs.s3.amazonaws.com/Libero/12_0_0/Tool/flashpro_express_ug.pdf>`_.
 
-
    .. group-tab:: Renode
 
       .. note::
 
          Support for LiteX is available in Renode since version 1.7 - download pre-built packages `from GitHub <https://github.com/renode/renode/releases/tag/v1.7>`_. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for more detailed installation instructions.
 
-      Start Renode and create an instance of emulated LiteX+VexRiscv board:
+      Start Renode and create an instance of emulated LiteX+VexRiscv:
 
       .. code-block:: text
 
          mach create "litex-vexriscv"
          machine LoadPlatformDescription @platforms/cpus/litex_vexriscv.repl
-
 
 Loading Zephyr
 ++++++++++++++
@@ -113,8 +111,7 @@ Loading Zephyr
 
          LiteX bios plays a role of a bootloader and is required on hardware to run Zephyr.
 
-         In Renode, however, you can load an ELF file to RAM and set CPU PC to its entry point, so there is no need for a bootloader.
-
+         In Renode, however, you can load an ELF file to RAM and set the CPU PC to its entry point, so there is no need for a bootloader.
 
 Running Zephyr
 ++++++++++++++
