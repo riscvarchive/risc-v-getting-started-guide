@@ -25,4 +25,5 @@
    linux-introduction
    linux-qemu
    linux-hifive-u
+   linux-avalanche
 

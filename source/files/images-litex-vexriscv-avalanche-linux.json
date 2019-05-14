@@ -1,0 +1,6 @@
+{
+	"Image":        "0xc0000000",
+	"rootfs.cpio":  "0xc0800000",
+	"devicetree-litex-vexriscv-avalanche-linux.dtb":     "0xc1000000",
+	"emulator-litex-vexriscv-avalanche-linux.bin":  "0x20000000"
+}
