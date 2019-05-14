@@ -64,7 +64,7 @@ Preparing the platform
 
       .. note::
 
-         Support for Linux-enabled LiteX with VexRiscv is available in not yet available in pre-built Renode packages. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for instructions on building from sources.
+         Support for Linux-enabled LiteX with VexRiscv is not yet available in pre-built Renode packages. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for instructions on building from sources.
 
       Start Renode and create an simulated instance of Linux-enabled LiteX+VexRiscv:
 
