@@ -1,5 +1,5 @@
-RISC-V Linux port
-=================
+Linux
+=====
 
 Linux and related tools are - for the most part - already in the upstream repositories of the respective projects.
 As noted on the `Debian RISC-V wiki`_ (with some updates):
@@ -11,7 +11,12 @@ As noted on the `Debian RISC-V wiki`_ (with some updates):
 * gdb: upstreamed in master (in the release process)
 * qemu: upstreamed (2.12 is the first release with RISC-V support)
 
-This guide targets BusyBear Linux for QEMU and Buildroot for HiFive Unleashed.
+Linux-enabled platforms currently described in the Getting Started Guide include:
+
+:doc:`SiFive HiFive Unleashed <linux-hifive-u>`
+:doc:`LiteX SoC with VexRiscv CPU <linux-avalanche>` running on the Future Electronics Avalanche board with a Microsemi PolarFire FPGA or in the Renode simulation framework
+
+There is also a generic :doc:`QEMU 64-bit RISC-V simulation target running BusyBear Linux <linux-qemu>`.
 
 Debian and Fedora ports are also available, for more information see:
 
