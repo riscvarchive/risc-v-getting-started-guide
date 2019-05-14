@@ -1,5 +1,5 @@
-Running 32-bit Linux on Litex/VexRiscv on Avalanche with Microsemi PolarFire FPGA
-=================================================================================
+Running 32-bit Linux on Litex/VexRiscv on Avalanche board with Microsemi PolarFire FPGA
+=======================================================================================
 
 This section contains tutorial on how to build and run 32-bit Linux on the LiteX soft SoC with an RV32 VexRiscv CPU on the `Future Electronics Avalanche Board <https://www.microsemi.com/existing-parts/parts/139680>`_ with a `PolarFire FPGA <https://www.microsemi.com/product-directory/fpgas/3854-polarfire-fpgas>`_ from Microsemi (a Microchip company) as well as in the `Renode open source simulation framework <https://renode.io>`_.
 
@@ -68,10 +68,10 @@ Preparing the platform
 
       Start Renode and create an simulated instance of Linux-enabled LiteX+VexRiscv:
 
-      .. code-block:: text
-
-         mach create "litex-vexriscv-linux"
-         machine LoadPlatformDescription @platforms/cpus/litex_vexriscv_linux.repl
+      .. literalinclude:: scripts/linux-avalanche.resc
+      
+         :start-after: # create platform
+         :end-before: # /create platform
 
 Loading Linux images
 ++++++++++++++++++++
