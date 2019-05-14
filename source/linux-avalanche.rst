@@ -15,11 +15,9 @@ Prerequisites
 
 Running Linux on the Litex/VexRiscv platform requires you to install some prerequisites.
 
-.. code-block:: bash
-
-    sudo apt install autoconf automake autotools-dev bc bison build-essential curl flex \
-                     gawk gdisk git gperf libgmp-dev libmpc-dev libmpfr-dev libncurses-dev \
-                     libssl-dev libtool patchutils python screen texinfo unzip zlib1g-dev
+.. literalinclude:: scripts/linux-avalanche.sh
+   :start-after: # get prerequisites
+   :end-before: # /get prerequisites
 
 Getting the sources
 -------------------
@@ -53,9 +51,9 @@ Preparing the platform
 
        Download a pregenerated bitstream of Litex with VexRiscv and BIOS preloaded to RAM:
 
-       .. code-block:: text
-
-          wget https://github.com/riscv/risc-v-getting-started-guide/releases/download/tip/bitstream-litex-vexriscv-avalanche-linux.job
+      .. literalinclude:: scripts/linux-avalanche.sh
+         :start-after: # get bitstream
+         :end-before: # /get bitstream
 
        Load it onto the Avalanche board using the `PolarFire FlashPro <https://www.microsemi.com/product-directory/programming/4977-flashpro#software>`_ tool.`
        You can refer to the "Creating a Job Project from a FlashPro Express Job" section of the tool's official `User Guide <https://coredocs.s3.amazonaws.com/Libero/12_0_0/Tool/flashpro_express_ug.pdf>`_.
@@ -79,8 +77,8 @@ Loading Linux images
 First, download pre-built binaries of two files needed for running Linux on the platform, the Machine Mode emulator and the device tree:
 
 .. literalinclude:: scripts/linux-avalanche.sh
-   :start-after: # prebuilt_binaries
-   :end-before: # /prebuilt_binaries
+   :start-after: # get prebuilt binaries
+   :end-before: # /get prebuilt binaries
 
 .. tabs::
 
@@ -90,8 +88,8 @@ First, download pre-built binaries of two files needed for running Linux on the 
       Flashing can be done using the ``litex_term`` tool
       
       .. literalinclude:: scripts/linux-avalanche.sh
-         :start-after: # flashing
-         :end-before: # /flashing
+         :start-after: # flash
+         :end-before: # /flash
 
    .. group-tab:: Renode
 
