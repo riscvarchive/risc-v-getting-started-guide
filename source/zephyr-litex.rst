@@ -75,7 +75,7 @@ Preparing the platform
 
          Support for LiteX is available in Renode since version 1.7 - download pre-built packages `from GitHub <https://github.com/renode/renode/releases/tag/v1.7>`_. Refer to the `Renode README <https://github.com/renode/renode#installation>`_ for more detailed installation instructions.
 
-      Start Renode and create an instance of emulated LiteX+VexRiscv:
+      Start Renode and create a simulated instance of LiteX+VexRiscv:
 
       .. code-block:: text
 
@@ -101,7 +101,7 @@ Loading Zephyr
 
    .. group-tab:: Renode
 
-      To load the binary onto the emulated platform, just do:
+      To load the binary onto the simulated platform, just do:
 
       .. code-block:: text
 
@@ -167,7 +167,7 @@ Running Zephyr
 
    .. group-tab:: Renode
 
-      Open UART window and start the emulation::
+      Open a UART window and start the Renode simulation::
 
          showAnalyzer sysbus.uart
          start
