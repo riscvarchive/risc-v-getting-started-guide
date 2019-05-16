@@ -3,9 +3,9 @@
 set -e
 
 # get prerequisites
-sudo apt install autoconf automake autotools-dev bc bison build-essential curl flex \
+sudo apt install autoconf automake autotools-dev bc bison build-essential curl cpio flex \
                  gawk gdisk git gperf libgmp-dev libmpc-dev libmpfr-dev libncurses-dev \
-                 libssl-dev libtool patchutils python screen texinfo unzip zlib1g-dev
+                 libssl-dev libtool patchutils python rsync screen texinfo unzip zlib1g-dev
 # /get prerequisites
 
 # clone
