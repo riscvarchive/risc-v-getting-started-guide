@@ -14,7 +14,7 @@ Building your system
 Zephyr
 ++++++
 
-First, :doc:`prepare your environment and get the Zephyr's sources <getting-zephyr`.
+First, :doc:`prepare your environment and get the Zephyr RTOS sources <getting-zephyr>`.
 
 If you want to skip building Zephyr manually, you can download a precompiled `ELF file <https://antmicro.com/projects/renode/litex_vexriscv--zephyr-shell.elf-s_750684-21ab1a23b11ad242acd76f85621380e15b377173>`_ and `binary file <https://antmicro.com/projects/renode/litex_vexriscv--zephyr-shell.bin-s_57912-448675102fa144363b4fb41336bdf02017c4090b>`_.
 
