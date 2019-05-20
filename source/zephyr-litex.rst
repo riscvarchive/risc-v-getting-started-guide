@@ -1,7 +1,7 @@
 Running Zephyr on LiteX/VexRiscv on Avalanche board with Microsemi PolarFire FPGA
 =================================================================================
 
-This section contains tutorial on how to build and run a shell sample for the Zephyr RTOS on the LiteX soft SoC with an RV32 VexRiscv CPU on the `Future Electronics Avalanche Board <https://www.microsemi.com/existing-parts/parts/139680>`_ with a `PolarFire FPGA <https://www.microsemi.com/product-directory/fpgas/3854-polarfire-fpgas>`_ from Microsemi (a Microchip company) as well as in the `Renode open source simulation framework <https://renode.io>`_.
+This section contains a tutorial on how to build and run a shell sample for the Zephyr RTOS on the LiteX soft SoC with an RV32 VexRiscv CPU on the `Future Electronics Avalanche Board <https://www.microsemi.com/existing-parts/parts/139680>`_ with a `PolarFire FPGA <https://www.microsemi.com/product-directory/fpgas/3854-polarfire-fpgas>`_ from Microsemi (a Microchip company) as well as in the `Renode open source simulation framework <https://renode.io>`_.
 
 .. figure:: images/avalanche.jpg
    :align: center
@@ -14,39 +14,23 @@ Building your system
 Zephyr
 ++++++
 
-The support for VexRiscv is currently in the process of being merged into mainline Zephyr (`Pull Request #14915 <https://github.com/zephyrproject-rtos/zephyr/pull/14915>`_).
-A working port can be obtained from Antmicro Zephyr fork on the `litex-vexriscv branch <https://github.com/antmicro/zephyr/tree/litex-vexriscv>`_.
+First, :doc:`prepare your environment and get the Zephyr RTOS sources <getting-zephyr>`.
 
 If you want to skip building Zephyr manually, you can download a precompiled `ELF file <https://antmicro.com/projects/renode/litex_vexriscv--zephyr-shell.elf-s_750684-21ab1a23b11ad242acd76f85621380e15b377173>`_ and `binary file <https://antmicro.com/projects/renode/litex_vexriscv--zephyr-shell.bin-s_57912-448675102fa144363b4fb41336bdf02017c4090b>`_.
 
 Building a shell sample
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Clone the zephyr port::
-
-   git clone -b litex-vexriscv https://github.com/antmicro/zephyr litex-vexriscv-zephyr
-   cd litex-vexriscv-zephyr
-
-.. note::
-
-   For details on how to download and setup Zephyr toolchain, see `the official documentation <https://docs.zephyrproject.org/latest/getting_started/installation_linux.html#install-the-zephyr-software-development-kit-sdk>`_.
-
-Configure the environment::
-
-   export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
-   export ZEPHYR_SDK_INSTALL_DIR=/opt/zephyr-sdk/
-   source ./zephyr-env.sh
-
 Generate the project build files::
 
    cd samples/subsys/shell/shell_module
    mkdir build
    cd build
-   cmake -DBOARD=arty_litex_vexriscv ..
+   cmake -DBOARD=litex_vexriscv ..
 
 Build it::
 
-   make
+   make -j $(nproc)
 
 As a result, you should find ``zephyr.elf`` and ``zephyr.bin`` in the ``zephyr`` folder.
 
