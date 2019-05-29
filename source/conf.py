@@ -235,7 +235,7 @@ latex_elements = {
     'maketitle': r'''
         \renewcommand{\releasename}{}
         \renewcommand{\sphinxlogo}{\includegraphics[height=75pt]{logo-400.png}\par}
-        \maketitle
+        \sphinxmaketitle
     ''',
     'classoptions':',openany,oneside',
     'babel': r'''
