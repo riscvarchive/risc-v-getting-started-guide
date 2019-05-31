@@ -51,7 +51,7 @@ Preparing the platform
 
    .. group-tab:: Hardware
 
-       Download a pregenerated bitstream of Litex with VexRiscv and BIOS preloaded to RAM:
+      Download a pregenerated bitstream of Litex with VexRiscv and BIOS preloaded to RAM:
 
       .. literalinclude:: scripts/linux-avalanche.sh
          :start-after: # get bitstream
