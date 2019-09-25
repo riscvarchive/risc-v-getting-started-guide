@@ -127,7 +127,7 @@ Build QEMU with the RISC-V target:
          .. code-block:: bash
 
             cd qemu
-            git checkout v3.0.0
+            git checkout v3.1.1
             ./configure --target-list=riscv{{bits}}-softmmu
             make -j $(nproc)
             sudo make install
