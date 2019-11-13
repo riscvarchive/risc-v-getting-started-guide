@@ -66,7 +66,7 @@ Then download all the required sources, which are:
     git clone https://github.com/qemu/qemu
     git clone https://github.com/torvalds/linux
     git clone https://github.com/riscv/riscv-pk
-    git clone https://github.com/michaeljclark/busybear-linux
+    git clone --recursive https://github.com/michaeljclark/busybear-linux
 
 .. note:: You can also use a prebuilt RISC-V GCC toolchain, which can be found on
           `SiFive's website <https://www.sifive.com/products/tools/>`_.
