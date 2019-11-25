@@ -18,10 +18,12 @@ Linux-enabled platforms currently described in the Getting Started Guide include
 
 There is also a generic :doc:`QEMU 64-bit RISC-V simulation target running BusyBear Linux <linux-qemu>`.
 
-Debian and Fedora ports are also available, for more information see:
+Debian, Fedora, and openSUSE ports are also available, for more information see:
 
 * `Debian RISC-V wiki`_
 * `Fedora RISC-V wiki`_
+* `openSUSE RISC-V wiki`_
 
 .. _Debian RISC-V wiki: https://wiki.debian.org/RISC-V
 .. _Fedora RISC-V wiki: https://fedoraproject.org/wiki/Architectures/RISC-V
+.. _openSUSE RISC-V wiki: https://en.opensuse.org/openSUSE:RISC-V
