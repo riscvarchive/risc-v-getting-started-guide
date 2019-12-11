@@ -83,6 +83,8 @@ and :download:`busybear-linux.diff <files/busybear-linux.diff>`:
     cd <repository_name>
     git apply <path_to_diffs>/<repository_name>.diff
 
+.. note:: Checkout respective version before apply patches. Version tag for 'linux' is 'v4.19-rc3'  and version for 'busybear-linux' is 'a01f6232b4b528eea9351ad9d84d897a50b353df'.
+
 Building
 --------
 
@@ -254,6 +256,8 @@ Go back to your main working directory and run:
                  -device virtio-blk-device,drive=hd0
 
    {% endfor %}
+
+**For 32-bit**, make sure the 'mmu-type' is configured as 'riscv,sv32' in the device tree entry for machine 'virt' in qemu. Load modified DTB with qemu or modify 'mmu-type' in qemu source 'hw/riscv/virt.c'.
 
 The default credentials are:
 
