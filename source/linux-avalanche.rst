@@ -1,4 +1,4 @@
-Running 32-bit Linux on Litex/VexRiscv on Avalanche board with Microsemi PolarFire FPGA
+Running 32-bit Linux on LiteX/VexRiscv on Avalanche board with Microsemi PolarFire FPGA
 =======================================================================================
 
 .. highlight:: bash
