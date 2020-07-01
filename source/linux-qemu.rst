@@ -164,12 +164,3 @@ Go back to your main working directory and run:
                  -device virtio-blk-device,drive=hd0
 
    {% endfor %}
-
-.. only:: html
-
-   A typical run could look as shown in the gif below:
-
-   .. figure:: images/linux64-qemu.gif
-      :align: center
-
-
