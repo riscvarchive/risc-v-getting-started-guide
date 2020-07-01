@@ -54,7 +54,6 @@ First, create a working directory, where we'll download and build all the source
 
 Then download all the required sources, which are:
 
-- `RISC-V newlib and Linux toolchains <https://github.com/riscv/riscv-gnu-toolchain>`_
 - `QEMU <https://github.com/qemu/qemu>`_
 - `Linux <https://github.com/torvalds/linux>`_
 - `BBL (Berkeley Boot Loader) <https://github.com/riscv/riscv-pk>`_
@@ -62,18 +61,14 @@ Then download all the required sources, which are:
 
 .. code-block:: bash
 
-    git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
     git clone https://github.com/qemu/qemu
     git clone https://github.com/torvalds/linux
     git clone https://github.com/riscv/riscv-pk
     git clone https://github.com/michaeljclark/busybear-linux
 
-.. note:: You can also use a prebuilt RISC-V GCC toolchain, which can be found on
-          `SiFive's website <https://www.sifive.com/products/tools/>`_.
-
-.. note:: If you need to build the root filesystem yourself, you will need to compile
-          the Linux cross-compiler yourself, as it isn't provided in the archive
-          from SiFive's website.
+You will also need to install a RISC-V toolchain. It is recomendded to install a toolchain from your distro.
+This can be done by using your distro's installed (apt, dnf, pacman or something similar) and searching for
+riscv64 and installing gcc. If that doesn't work you can use a prebuilt toolchain from: https://toolchains.bootlin.com.
 
 **For 32-bit**, apply the following patches to their respective repositories: :download:`linux.diff <files/linux.diff>`
 and :download:`busybear-linux.diff <files/busybear-linux.diff>`:
@@ -82,35 +77,6 @@ and :download:`busybear-linux.diff <files/busybear-linux.diff>`:
 
     cd <repository_name>
     git apply <path_to_diffs>/<repository_name>.diff
-
-Building
---------
-
-If you're using a prebuilt toolchain, skip this step. If not, build the toolchain:
-
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         .. code-block:: bash
-
-            cd riscv-gnu-toolchain
-
-            # pick an install path, e.g. /opt/riscv{{bits}}
-            ./configure --prefix=/opt/riscv{{bits}} {% if bits == 32 %}--with-arch=rv32gc --with-abi=ilp32d{% endif %}
-            make newlib -j $(nproc)
-            make linux -j $(nproc)
-
-            # export variables
-            export PATH="$PATH:/opt/riscv{{bits}}/bin"
-            export RISCV="/opt/riscv{{bits}}"
-
-   {% endfor %}
 
 ----------
 
