@@ -56,13 +56,13 @@ Then download all the required sources, which are:
 
 - `QEMU <https://github.com/qemu/qemu>`_
 - `Linux <https://github.com/torvalds/linux>`_
-- `Busybear Linux (RISC-V root filesystem image) <https://github.com/michaeljclark/busybear-linux>`_
+- `Busybox <https://git.busybox.net/busybox>`_
 
 .. code-block:: bash
 
     git clone https://github.com/qemu/qemu
     git clone https://github.com/torvalds/linux
-    git clone https://github.com/michaeljclark/busybear-linux
+    git clone https://git.busybox.net/busybox
 
 You will also need to install a RISC-V toolchain. It is recomendded to install a toolchain from your distro.
 This can be done by using your distro's installed (apt, dnf, pacman or something similar) and searching for
@@ -129,12 +129,13 @@ Then compile the kernel:
 
 ----------
 
-Build Busybear Linux:
+Build Busybox:
 
 .. code-block:: bash
 
-    cd busybear-linux
-    make -j $(nproc)
+    cd busybox
+    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make defconfig
+    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make -j $(nproc)
 
 Running
 -------
@@ -153,18 +154,10 @@ Go back to your main working directory and run:
 
             sudo qemu-system-riscv{{bits}} -nographic -machine virt \
                  -kernel linux/arch/riscv/boot/Image -append "root=/dev/vda ro console=ttyS0" \
-                 -drive file=busybear-linux/busybear.bin,format=raw,id=hd0 \
+                 -drive file=busybox,format=raw,id=hd0 \
                  -device virtio-blk-device,drive=hd0
 
    {% endfor %}
-
-The default credentials are:
-
-username
-    root
-
-password
-    busybear
 
 .. only:: html
 
