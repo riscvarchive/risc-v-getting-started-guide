@@ -93,7 +93,7 @@ Build QEMU with the RISC-V target:
 ----------
 
 Build Linux for the RISC-V target.
-First, checkout to a desired version and copy the default configuration from Busybear:
+First, checkout to a desired version:
 
 .. jinja::
 
@@ -106,27 +106,12 @@ First, checkout to a desired version and copy the default configuration from Bus
          .. code-block:: bash
 
             cd linux
-            git checkout v4.19-rc3
-            cp ../busybear-linux/conf/linux.config .config
-            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- olddefconfig
+            git checkout v5.4.0
+            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- defconfig
 
    {% endfor %}
 
-Next, enter the kernel configuration, and make sure that the following options are checked:
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         - ``ARCH_RV{{bits}}I``
-         - ``CMODEL_MED{% if bits == 64 %}ANY{% else %}LOW{% endif %}``
-         - ``CONFIG_SIFIVE_PLIC``
-
-   {% endfor %}
+Then compile the kernel:
 
 .. jinja::
 
@@ -138,24 +123,7 @@ Next, enter the kernel configuration, and make sure that the following options a
 
          .. code-block:: bash
 
-            # enter kernel configuration
-            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- nconfig
-
-   {% endfor %}
-
-After accepting changes in the configuration, compile the kernel:
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         .. code-block:: bash
-
-            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- vmlinux -j $(nproc)
+            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- -j $(nproc)
 
    {% endfor %}
 
