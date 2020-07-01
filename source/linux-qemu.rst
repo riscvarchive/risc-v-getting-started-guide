@@ -70,14 +70,6 @@ You will also need to install a RISC-V toolchain. It is recomendded to install a
 This can be done by using your distro's installed (apt, dnf, pacman or something similar) and searching for
 riscv64 and installing gcc. If that doesn't work you can use a prebuilt toolchain from: https://toolchains.bootlin.com.
 
-**For 32-bit**, apply the following patches to their respective repositories: :download:`linux.diff <files/linux.diff>`
-and :download:`busybear-linux.diff <files/busybear-linux.diff>`:
-
-.. code-block:: bash
-
-    cd <repository_name>
-    git apply <path_to_diffs>/<repository_name>.diff
-
 ----------
 
 Build QEMU with the RISC-V target:
