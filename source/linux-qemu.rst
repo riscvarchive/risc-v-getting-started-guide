@@ -56,14 +56,12 @@ Then download all the required sources, which are:
 
 - `QEMU <https://github.com/qemu/qemu>`_
 - `Linux <https://github.com/torvalds/linux>`_
-- `BBL (Berkeley Boot Loader) <https://github.com/riscv/riscv-pk>`_
 - `Busybear Linux (RISC-V root filesystem image) <https://github.com/michaeljclark/busybear-linux>`_
 
 .. code-block:: bash
 
     git clone https://github.com/qemu/qemu
     git clone https://github.com/torvalds/linux
-    git clone https://github.com/riscv/riscv-pk
     git clone https://github.com/michaeljclark/busybear-linux
 
 You will also need to install a RISC-V toolchain. It is recomendded to install a toolchain from your distro.
@@ -163,27 +161,6 @@ After accepting changes in the configuration, compile the kernel:
 
 ----------
 
-Build BBL:
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         .. code-block:: bash
-
-            cd riscv-pk
-            mkdir build && cd build
-            ../configure --enable-logo --host=riscv{{bits}}-unknown-elf --with-payload=../../linux/vmlinux
-            make -j $(nproc)
-
-   {% endfor %}
-
-----------
-
 Build Busybear Linux:
 
 .. code-block:: bash
@@ -207,7 +184,7 @@ Go back to your main working directory and run:
          .. code-block:: bash
 
             sudo qemu-system-riscv{{bits}} -nographic -machine virt \
-                 -kernel riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" \
+                 -kernel linux/arch/riscv/boot/Image -append "root=/dev/vda ro console=ttyS0" \
                  -drive file=busybear-linux/busybear.bin,format=raw,id=hd0 \
                  -device virtio-blk-device,drive=hd0
 
