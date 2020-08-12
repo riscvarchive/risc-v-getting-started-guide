@@ -13,10 +13,9 @@ As noted on the `Debian RISC-V wiki`_ (with some updates):
 
 Linux-enabled platforms currently described in the Getting Started Guide include:
 
+* :doc:`QEMU <linux-qemu>`
 * :doc:`SiFive HiFive Unleashed <linux-hifive-u>`
 * :doc:`LiteX SoC with VexRiscv CPU <linux-avalanche>` running on the Future Electronics Avalanche board with a Microsemi PolarFire FPGA or in the Renode simulation framework
-
-There is also a generic :doc:`QEMU 64-bit RISC-V simulation target running Linux <linux-qemu>`.
 
 Debian, Fedora, and openSUSE ports are also available, for more information see:
 
