@@ -1,10 +1,16 @@
 Running 64- and 32-bit RISC-V Linux on QEMU
 ===========================================
 
+This is a "hello world" example of booting Linux on RISC-V QEMU. This guide covers some basic steps
+to get Linux running on RISC-V. It is recomended that if you are interested in a specific distrubution
+you follow their steps. For example if you are interested in running Debian, they have instructions
+on their wiki https://wiki.debian.org/RISC-V. Most distrobutions (Debian, Fedora, OpenEmbedded, buildroot,
+OpenSUSE, FreeBSD and others) support RISC-V.
+
 Prerequisites
 -------------
 
-Running Linux on the QEMU RISC-V port requires you to install some prerequisites.
+Running Linux on QEMU RISC-V requires you to install some prerequisites.
 Find instructions for various Linux distributions as well as macOS below:
 
 .. tabs::
@@ -54,63 +60,19 @@ First, create a working directory, where we'll download and build all the source
 
 Then download all the required sources, which are:
 
-- `RISC-V newlib and Linux toolchains <https://github.com/riscv/riscv-gnu-toolchain>`_
 - `QEMU <https://github.com/qemu/qemu>`_
 - `Linux <https://github.com/torvalds/linux>`_
-- `BBL (Berkeley Boot Loader) <https://github.com/riscv/riscv-pk>`_
-- `Busybear Linux (RISC-V root filesystem image) <https://github.com/michaeljclark/busybear-linux>`_
+- `Busybox <https://git.busybox.net/busybox>`_
 
 .. code-block:: bash
 
-    git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
     git clone https://github.com/qemu/qemu
     git clone https://github.com/torvalds/linux
-    git clone https://github.com/riscv/riscv-pk
-    git clone https://github.com/michaeljclark/busybear-linux
+    git clone https://git.busybox.net/busybox
 
-.. note:: You can also use a prebuilt RISC-V GCC toolchain, which can be found on
-          `SiFive's website <https://www.sifive.com/products/tools/>`_.
-
-.. note:: If you need to build the root filesystem yourself, you will need to compile
-          the Linux cross-compiler yourself, as it isn't provided in the archive
-          from SiFive's website.
-
-**For 32-bit**, apply the following patches to their respective repositories: :download:`linux.diff <files/linux.diff>`
-and :download:`busybear-linux.diff <files/busybear-linux.diff>`:
-
-.. code-block:: bash
-
-    cd <repository_name>
-    git apply <path_to_diffs>/<repository_name>.diff
-
-Building
---------
-
-If you're using a prebuilt toolchain, skip this step. If not, build the toolchain:
-
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         .. code-block:: bash
-
-            cd riscv-gnu-toolchain
-
-            # pick an install path, e.g. /opt/riscv{{bits}}
-            ./configure --prefix=/opt/riscv{{bits}} {% if bits == 32 %}--with-arch=rv32gc --with-abi=ilp32d{% endif %}
-            make newlib -j $(nproc)
-            make linux -j $(nproc)
-
-            # export variables
-            export PATH="$PATH:/opt/riscv{{bits}}/bin"
-            export RISCV="/opt/riscv{{bits}}"
-
-   {% endfor %}
+You will also need to install a RISC-V toolchain. It is recomendded to install a toolchain from your distro.
+This can be done by using your distro's installed (apt, dnf, pacman or something similar) and searching for
+riscv64 and installing gcc. If that doesn't work you can use a prebuilt toolchain from: https://toolchains.bootlin.com.
 
 ----------
 
@@ -127,7 +89,7 @@ Build QEMU with the RISC-V target:
          .. code-block:: bash
 
             cd qemu
-            git checkout v3.0.0
+            git checkout v5.0.0
             ./configure --target-list=riscv{{bits}}-softmmu
             make -j $(nproc)
             sudo make install
@@ -137,7 +99,7 @@ Build QEMU with the RISC-V target:
 ----------
 
 Build Linux for the RISC-V target.
-First, checkout to a desired version and copy the default configuration from Busybear:
+First, checkout to a desired version:
 
 .. jinja::
 
@@ -150,27 +112,12 @@ First, checkout to a desired version and copy the default configuration from Bus
          .. code-block:: bash
 
             cd linux
-            git checkout v4.19-rc3
-            cp ../busybear-linux/conf/linux.config .config
-            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- olddefconfig
+            git checkout v5.4.0
+            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- defconfig
 
    {% endfor %}
 
-Next, enter the kernel configuration, and make sure that the following options are checked:
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         - ``ARCH_RV{{bits}}I``
-         - ``CMODEL_MED{% if bits == 64 %}ANY{% else %}LOW{% endif %}``
-         - ``CONFIG_SIFIVE_PLIC``
-
-   {% endfor %}
+Then compile the kernel:
 
 .. jinja::
 
@@ -182,56 +129,19 @@ Next, enter the kernel configuration, and make sure that the following options a
 
          .. code-block:: bash
 
-            # enter kernel configuration
-            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- nconfig
-
-   {% endfor %}
-
-After accepting changes in the configuration, compile the kernel:
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         .. code-block:: bash
-
-            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- vmlinux -j $(nproc)
+            make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- -j $(nproc)
 
    {% endfor %}
 
 ----------
 
-Build BBL:
-
-.. jinja::
-
-   .. tabs::
-
-   {% for bits in [64,32] %}
-
-      .. group-tab:: {{bits}}-bit
-
-         .. code-block:: bash
-
-            cd riscv-pk
-            mkdir build && cd build
-            ../configure --enable-logo --host=riscv{{bits}}-unknown-elf --with-payload=../../linux/vmlinux
-            make -j $(nproc)
-
-   {% endfor %}
-
-----------
-
-Build Busybear Linux:
+Build Busybox:
 
 .. code-block:: bash
 
-    cd busybear-linux
-    make -j $(nproc)
+    cd busybox
+    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make defconfig
+    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make -j $(nproc)
 
 Running
 -------
@@ -249,25 +159,8 @@ Go back to your main working directory and run:
          .. code-block:: bash
 
             sudo qemu-system-riscv{{bits}} -nographic -machine virt \
-                 -kernel riscv-pk/build/bbl -append "root=/dev/vda ro console=ttyS0" \
-                 -drive file=busybear-linux/busybear.bin,format=raw,id=hd0 \
+                 -kernel linux/arch/riscv/boot/Image -append "root=/dev/vda ro console=ttyS0" \
+                 -drive file=busybox,format=raw,id=hd0 \
                  -device virtio-blk-device,drive=hd0
 
    {% endfor %}
-
-The default credentials are:
-
-username
-    root
-
-password
-    busybear
-
-.. only:: html
-
-   A typical run could look as shown in the gif below:
-
-   .. figure:: images/linux64-qemu.gif
-      :align: center
-
-
