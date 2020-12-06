@@ -2,9 +2,9 @@ Running 64- and 32-bit RISC-V Linux on QEMU
 ===========================================
 
 This is a "hello world" example of booting Linux on RISC-V QEMU. This guide covers some basic steps
-to get Linux running on RISC-V. It is recomended that if you are interested in a specific distrubution
+to get Linux running on RISC-V. It is recommended that if you are interested in a specific distribution
 you follow their steps. For example if you are interested in running Debian, they have instructions
-on their wiki https://wiki.debian.org/RISC-V. Most distrobutions (Debian, Fedora, OpenEmbedded, buildroot,
+on their wiki https://wiki.debian.org/RISC-V. Most distributions (Debian, Fedora, OpenEmbedded, buildroot,
 OpenSUSE, FreeBSD and others) support RISC-V.
 
 Prerequisites
@@ -70,9 +70,9 @@ Then download all the required sources, which are:
     git clone https://github.com/torvalds/linux
     git clone https://git.busybox.net/busybox
 
-You will also need to install a RISC-V toolchain. It is recomendded to install a toolchain from your distro.
-This can be done by using your distro's installed (apt, dnf, pacman or something similar) and searching for
-riscv64 and installing gcc. If that doesn't work you can use a prebuilt toolchain from: https://toolchains.bootlin.com.
+You will also need to install a RISC-V toolchain. It is recommended to install a toolchain from your distribution.
+This can be done by using your distribution's package manager (apt, dnf, pacman or something similar) to search for
+riscv64 and install gcc. If that doesn't work you can use a prebuilt toolchain from: https://toolchains.bootlin.com.
 
 ----------
 
