@@ -23,7 +23,7 @@ Find instructions for various Linux distributions as well as macOS below:
 
          sudo apt install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
                           gawk build-essential bison flex texinfo gperf libtool patchutils bc \
-                          zlib1g-dev libexpat-dev git python3
+                          zlib1g-dev libexpat-dev libglib2.0-dev libpixman-1-dev git python3
 
    .. tab:: Fedora/CentOS/RHEL OS
 
@@ -137,11 +137,21 @@ Then compile the kernel:
 
 Build Busybox:
 
-.. code-block:: bash
+.. jinja::
 
-    cd busybox
-    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make defconfig
-    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make -j $(nproc)
+   .. tabs::
+
+   {% for bits in [64,32] %}
+
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
+
+            cd busybox
+            CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make defconfig
+            CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make -j $(nproc)
+
+   {% endfor %}
 
 Running
 -------
@@ -161,6 +171,7 @@ Go back to your main working directory and run:
             sudo qemu-system-riscv{{bits}} -nographic -machine virt \
                  -kernel linux/arch/riscv/boot/Image -append "root=/dev/vda ro console=ttyS0" \
                  -drive file=busybox,format=raw,id=hd0 \
-                 -device virtio-blk-device,drive=hd0
+                 -device virtio-blk-device,drive=hd0 \
+                 -bios default
 
    {% endfor %}
