@@ -23,7 +23,8 @@ Find instructions for various Linux distributions as well as macOS below:
 
          sudo apt install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
                           gawk build-essential bison flex texinfo gperf libtool patchutils bc \
-                          zlib1g-dev libexpat-dev git python3
+                          zlib1g-dev libexpat-dev git python3 libglib2.0-dev libpixman-1-dev \
+                          ninja-build pkg-config
 
    .. tab:: Fedora/CentOS/RHEL OS
 
