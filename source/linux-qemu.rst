@@ -23,20 +23,20 @@ Find instructions for various Linux distributions as well as macOS below:
 
          sudo apt install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev \
                           gawk build-essential bison flex texinfo gperf libtool patchutils bc \
-                          zlib1g-dev libexpat-dev git python3
+                          zlib1g-dev libexpat-dev git python3 ninja-build
 
    .. tab:: Fedora/CentOS/RHEL OS
 
       .. code-block:: bash
 
          sudo yum install autoconf automake libmpc-devel mpfr-devel gmp-devel gawk bison flex \
-                          texinfo patchutils gcc gcc-c++ zlib-devel expat-devel git
+                          texinfo patchutils gcc gcc-c++ zlib-devel expat-devel git ninja-build
 
    .. tab:: macOS
 
       .. code-block:: bash
 
-         brew install gawk gnu-sed gmp mpfr libmpc isl zlib expat
+         brew install gawk gnu-sed gmp mpfr libmpc isl zlib expat ninja-build
 
 Getting the sources
 -------------------
