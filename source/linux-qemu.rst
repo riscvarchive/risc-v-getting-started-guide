@@ -4,7 +4,7 @@ Running 64- and 32-bit RISC-V Linux on QEMU
 This is a "hello world" example of booting Linux on RISC-V QEMU. This guide covers some basic steps
 to get Linux running on RISC-V. It is recomended that if you are interested in a specific distrubution
 you follow their steps. For example if you are interested in running Debian, they have instructions
-on their wiki https://wiki.debian.org/RISC-V. Most distrobutions (Debian, Fedora, OpenEmbedded, buildroot,
+on their wiki https://wiki.debian.org/RISC-V. Most distributions (Debian, Fedora, OpenEmbedded, buildroot,
 OpenSUSE, FreeBSD and others) support RISC-V.
 
 Prerequisites
