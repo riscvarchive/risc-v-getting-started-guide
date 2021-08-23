@@ -18,7 +18,7 @@ Zephyr-enabled platforms currently described in the Getting Started Guide includ
 
 There is also a generic :doc:`QEMU simulation target <zephyr-qemu>` supporting RISC-V.
 
-For a full list of supported boards and details, see `the Zephyr documentation <https://docs.zephyrproject.org/latest/boards/riscv32/index.html>`_.
+For a full list of supported boards and details, see `the Zephyr documentation <https://docs.zephyrproject.org/latest/boards/riscv/index.html>`_.
 
 Why Zephyr?
 -----------
