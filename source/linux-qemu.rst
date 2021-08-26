@@ -160,7 +160,7 @@ Go back to your main working directory and run:
 
             sudo qemu-system-riscv{{bits}} -nographic -machine virt \
                  -kernel linux/arch/riscv/boot/Image -append "root=/dev/vda ro console=ttyS0" \
-                 -drive file=busybox,format=raw,id=hd0 \
+                 -drive file=busybox/busybox,format=raw,id=hd0 \
                  -device virtio-blk-device,drive=hd0
 
    {% endfor %}
