@@ -137,11 +137,23 @@ Then compile the kernel:
 
 Build Busybox:
 
-.. code-block:: bash
+.. jinja::
 
-    cd busybox
-    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make defconfig
-    CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make -j $(nproc)
+   .. tabs::
+
+   {% for bits in [64,32] %}
+
+      .. group-tab:: {{bits}}-bit
+
+         .. code-block:: bash
+
+            cd busybox
+            CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make defconfig
+            CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- make -j $(nproc)
+
+   {% endfor %}
+
+----------
 
 Running
 -------
