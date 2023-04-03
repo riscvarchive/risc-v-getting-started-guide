@@ -112,7 +112,7 @@ First, checkout to a desired version:
          .. code-block:: bash
 
             cd linux
-            git checkout v5.4.0
+            git checkout v5.4
             make ARCH=riscv CROSS_COMPILE=riscv{{bits}}-unknown-linux-gnu- defconfig
 
    {% endfor %}
