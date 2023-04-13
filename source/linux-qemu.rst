@@ -73,6 +73,7 @@ Then download all the required sources, which are:
 You will also need to install a RISC-V toolchain. It is recomendded to install a toolchain from your distro.
 This can be done by using your distro's installed (apt, dnf, pacman or something similar) and searching for
 riscv64 and installing gcc. If that doesn't work you can use a prebuilt toolchain from: https://toolchains.bootlin.com.
+For example, if you want to use a Ubuntu Linux build, then the package is [gcc-riscv64-linux-gnu](https://packages.ubuntu.com/search?keywords=gcc-riscv64-linux-gnu).
 
 ----------
 
