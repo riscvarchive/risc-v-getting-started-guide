@@ -3,7 +3,7 @@ Getting Zephyr
 
 .. highlight:: bash
 
-Note that a complete `Getting Started Guide <https://docs.zephyrproject.org/latest/getting_started/getting_started.html>`_ including installation instructions for different OSs is available in the Zephyr Project documentation.
+Note that a complete `Getting Started Guide <https://docs.zephyrproject.org/latest/develop/getting_started/index.html>`_ including installation instructions for different OSs is available in the Zephyr Project documentation.
 
 Here, we will focus on a Ubuntu Linux based environment for simplicity and clarity.
 
