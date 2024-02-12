@@ -22,7 +22,7 @@ needs_sphinx = '1.5'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.ifconfig', 'sphinx_tabs.tabs', 'sphinxcontrib.jinja', 'sphinx-prompt']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.ifconfig', 'sphinx_tabs.tabs', 'sphinx_jinja', 'sphinx-prompt']
 numfig = True
 
 # The suffix of source filenames.
