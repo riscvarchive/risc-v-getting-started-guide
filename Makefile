@@ -3,10 +3,10 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = sphinx-build -v
 PAPER         =
 BUILDDIR      = build
-FILENAME      = $(shell cd source && python -c "from conf import basic_filename; print basic_filename")
+FILENAME      = $(shell cd source && python -c "from conf import basic_filename; print(basic_filename)")
 
 
 # Internal variables.
